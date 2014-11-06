@@ -15,21 +15,29 @@
 find_path(youbotDriver_INCLUDE_DIR NAMES youbot_driver/youbot/YouBotBase.hpp
 	PATH_SUFFIXES 
 		youbot_driver/include
+	PATHS 
+		$ENV{YOUBOTDIR}/include
 )
 
 find_path(youbotDriver_CONFIG_DIR NAMES youbot-ethercat.cfg
 	PATH_SUFFIXES 
 		youbot_driver/config
+	PATHS 
+		$ENV{YOUBOTDIR}/config
 )
 
 find_library(youbotDriver_LIBRARY_YOUBOTDRIVER YouBotDriver
 	PATH_SUFFIXES 
 		youbot_driver/lib
+	PATHS 
+		$ENV{YOUBOTDIR}/build/Debug
 )
 
 find_library(youbotDriver_LIBRARY_SOEM soem
 	PATH_SUFFIXES 
 		youbot_driver/lib
+	PATHS 
+		$ENV{YOUBOTDIR}/build/src/soem/Debug
 )
 
 if (WIN32)
